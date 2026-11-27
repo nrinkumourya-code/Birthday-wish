@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Rashmi ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background-glow"></div>
+    <div id="hearts"></div>
+    <canvas id="confetti"></canvas>
+
+    <!-- MUSIC PLAYER -->
+
+    <audio id="birthdaySong" loop>
+        <source src="birthday song.mp3" type="audio/mpeg">
+    </audio>
+
+    <button class="music-button" onclick="toggleMusic()" id="musicBtn">
+        🎵 Play Music
+    </button>
+
+
+    <!-- SCENE 1: WELCOME -->
+
+    <section id="scene1" class="scene active">
+
+        <div class="tag">A SPECIAL SURPRISE FOR SOMEONE SPECIAL</div>
+
+        <h1 class="glow">Hey Rashmi! 💗</h1>
+
+        <p>
+            Someone has prepared a little surprise
+            just for you.
+        </p>
+
+        <div class="big-heart">💝</div>
+
+        <button onclick="startStory()">
+            Start Your Surprise ✨
+        </button>
+
+    </section>
+
+
+    <!-- SCENE 2: ENVELOPE -->
+
+    <section id="scene2" class="scene">
+
+        <h1 class="glow">A Letter For You 💌</h1>
+
+        <p>There is something waiting inside...</p>
+
+        <div class="envelope-area" onclick="openEnvelope()">
+
+            <div class="envelope" id="envelope">
+
+                <div class="back"></div>
+
+                <div class="letter-inside">
+                    For Suhani ❤️
+                </div>
+
+                <div class="flap"></div>
+
+                <div class="front"></div>
+
+                <div class="seal">♥</div>
+
+            </div>
+
+        </div>
+
+        <button onclick="openEnvelope()">
+            Open Letter 💌
+        </button>
+
+    </section>
+
+
+    <!-- SCENE 3: PHOTO GALLERY -->
+
+    <section id="scene3" class="scene">
+
+        <h1 class="glow">Beautiful Memories 🌸</h1>
+
+        <p>A little gallery for a wonderful person.</p>
+
+        <div class="gallery">
+
+            <div class="photo-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYPLEwB_qBS3akEbcY8GJia0pG8Bg1z2h8EmhpCodkhg&s=10.jpg"
+                     alt="Rashmi"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+
+                <div class="placeholder">
+                    📸<br>
+                    Rashmi's Photo
+                </div>
+
+                <h3>Beautiful Smile 💗</h3>
+            </div>
+
+            <div class="photo-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdIU8ibFkx0x1tPleybvrmnllI_SBAALaGtABo-Pl8YQ&s=10.jpg"
+                     alt="Memory 1"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+
+                <div class="placeholder">🌸<br>Memory 1</div>
+
+                <h3>Sweet Moments ✨</h3>
+            </div>
+
+            <div class="photo-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfDqZHZfumX1UDW7xe1dHxyrwMztuhbbU1YRztKoSdAQ&s.jpg"
+                     alt="Memory 2"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+
+                <div class="placeholder">💕<br>Memory 2</div>
+
+                <h3>Special Memories</h3>
+            </div>
+
+        </div>
+
+        <button onclick="nextScene(4)">
+            Next Surprise 💝
+        </button>
+
+    </section>
+
+
+    <!-- SCENE 4: COUNTDOWN -->
+
+    <section id="scene4" class="scene">
+
+        <h1 class="glow">Your Special Day ⏳</h1>
+
+        <p>Counting down to your birthday!</p>
+
+        <div class="countdown">
+
+            <div><span id="days">37</span><small>Days</small></div>
+
+            <div><span id="hours">9</span><small>Hours</small></div>
+
+            <div><span id="minutes">53</span><small>Minutes</small></div>
+
+            <div><span id="seconds">35</span><small>Seconds</small></div>
+
+        </div>
+
+        <p id="countdownMessage"></p>
+
+        <button onclick="nextScene(5)">
+            Let's Celebrate 🎂
+        </button>
+
+    </section>
+
+
+    <!-- SCENE 5: BIRTHDAY CAKE -->
+
+    <section id="scene5" class="scene">
+
+        <h1 class="glow">Happy Birthday! 🎂</h1>
+
+        <h2 class="pink-text">Dear Rashmi ❤️</h2>
+
+        <p>Make a wish. This moment is yours!</p>
+
+        <div class="cake-container">
+
+            <div class="flame" id="flame">🔥</div>
+
+            <div class="candle"></div>
+
+            <div class="cake-top"></div>
+
+            <div class="cake-middle"></div>
+
+            <div class="cake-bottom"></div>
+
+            <div class="plate"></div>
+
+        </div>
+
+        <h3 id="cakeText">Close your eyes and make a wish! 🌟</h3>
+
+        <button id="blowBtn" onclick="blowCandle()">
+            Blow The Candle 💨
+        </button>
+
+        <button id="letterBtn" class="hidden" onclick="nextScene(6)">
+            Read Your Secret Letter 💌
+        </button>
+
+    </section>
+
+
+    <!-- SCENE 6: SECRET LETTER -->
+
+    <section id="scene6" class="scene">
+
+        <div class="final-card">
+
+            <div class="heart-icon">💗</div>
+
+            <h1 class="glow">Dear Suhani,</h1>
+
+            <p class="final-message">
+
+                On your special day, I wish you
+                endless happiness and countless
+                reasons to smile.
+
+                <br><br>
+
+                May all your dreams come true.
+                May every new day bring something
+                beautiful into your life.
+
+                <br><br>
+
+                Keep smiling, keep shining and
+                always stay the wonderful person
+                you are.
+
+                <br><br>
+
+                You deserve all the happiness
+                in the world.
+
+                <br><br>
+
+                <strong>
+                    Once Again, Happy Birthday! 🎂❤️
+                </strong>
+
+            </p>
+
+            <div class="signature">
+                Made with ❤️ just for you.
+            </div>
+
+            <button onclick="nextScene(7)">
+                One Last Surprise ✨
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- SCENE 7: FINAL CELEBRATION -->
+
+    <section id="scene7" class="scene">
+
+        <div class="big-heart">💖</div>
+
+        <h1 class="glow">Stay Happy, Rashmi!</h1>
+
+        <h2>Keep Shining Always ✨</h2>
+
+        <p>
+            May your life be as beautiful
+            as this little celebration.
+        </p>
+
+        <button onclick="launchConfetti()">
+            Celebrate Again 🎉
+        </button>
+
+        <button onclick="restartStory()">
+            Replay Our Story ↻
+        </button>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
